@@ -9,13 +9,32 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tuusuario.calculaasadoapp",
+      "config": {
+        "googleMapsApiKey": "TU_API_KEY_IOS"
+      },
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Esta app necesita acceso a la ubicación para mostrar carnicerías cercanas",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Esta app necesita acceso a la ubicación para mostrar carnicerías cercanas",
+        "UIBackgroundModes": ["location"]
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.tuusuario.calculaasadoapp",
+      "config": {
+        "googleMaps": {
+          "apiKey": "TU_API_KEY_ANDROID"
+        }
+      },
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -31,6 +50,12 @@
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Permitir a $(PRODUCT_NAME) usar tu ubicación para encontrar carnicerías cercanas."
         }
       ]
     ],
